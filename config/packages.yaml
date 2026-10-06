@@ -1,0 +1,23 @@
+# Target packages. Keep to <= 5 initially.
+# Collectors read only this file; swapping domains means swapping this file + collectors.
+packages:
+  - name: apache-airflow
+    pypi: apache-airflow
+    github: apache/airflow
+    osv_ecosystem: PyPI
+  - name: sqlalchemy
+    pypi: SQLAlchemy
+    github: sqlalchemy/sqlalchemy
+    osv_ecosystem: PyPI
+  - name: pandas
+    pypi: pandas
+    github: pandas-dev/pandas
+    osv_ecosystem: PyPI
+  - name: pydantic
+    pypi: pydantic
+    github: pydantic/pydantic
+    osv_ecosystem: PyPI
+  - name: fastapi
+    pypi: fastapi
+    github: fastapi/fastapi
+    osv_ecosystem: PyPI
