@@ -1,0 +1,56 @@
+{
+  "id": "ubuntu-security",
+  "robots": [
+    {
+      "url": "https://ubuntu.com/robots.txt",
+      "fetched_at": "2026-10-06T05:21:47.610207+00:00",
+      "status": 200,
+      "final_url": "https://ubuntu.com/robots.txt",
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "5511",
+        "last-modified": "Mon, 21 Sep 2026 13:28:40 GMT",
+        "etag": "\"1789997320.0-5511-1935477018\""
+      },
+      "sha256": "16e26f4cb730b111c334f112f075115ef4a50cf8df110581f3d4ee032a47cca9",
+      "bytes": 5511
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://ubuntu.com/legal/terms-and-policies/intellectual-property-policy",
+      "fetched_at": "2026-10-06T05:21:49.598275+00:00",
+      "status": null,
+      "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "url": "https://documentation.ubuntu.com/security/docs/",
+      "fetched_at": "2026-10-06T05:21:51.238314+00:00",
+      "status": 200,
+      "final_url": "https://documentation.ubuntu.com/security/",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "ETag": "W/\"79876883fde6a613d6730936d82a076a\"",
+        "Last-Modified": "Thu, 01 Oct 2026 07:20:12 GMT"
+      },
+      "sha256": "a7c38cdd39fe933625e772c6107dddeb0aad07e5f736f94738b3e9cacd290a6b",
+      "bytes": 38484
+    },
+    {
+      "url": "https://ubuntu.com/security/cves.json?limit=1",
+      "fetched_at": "2026-10-06T05:21:53.662441+00:00",
+      "status": 200,
+      "final_url": "https://ubuntu.com/security/cves.json?limit=1",
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "5641"
+      },
+      "sha256": "d55d5096ad24cfb51dacc685c0d1ce76a8370d9200bda18128a29b886d18e5b4",
+      "bytes": 5641
+    }
+  ],
+  "sample_allowed_by_robots": true,
+  "crawl_delay": 1
+}
