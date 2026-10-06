@@ -48,6 +48,8 @@ def test_external_provider_requires_opt_in():
 def test_dsn_uses_role_credentials_and_hides_secrets(monkeypatch):
     monkeypatch.setenv("DB_READER_PASSWORD", "s3cret")
     monkeypatch.setenv("POSTGRES_HOST", "db")
+    monkeypatch.setenv("POSTGRES_PORT", "5432")
+    monkeypatch.delenv("DB_READER_USER", raising=False)
     s = Settings(_env_file=None)
     assert s.dsn("reader") == "postgresql://og_reader:s3cret@db:5432/opsgraph"
     assert s.dsn("collector").startswith("postgresql://og_collector:")
