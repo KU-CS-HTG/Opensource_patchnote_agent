@@ -3,15 +3,16 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "patchnote"
+name = "opsgraph"
 version = "0.1.0"
-description = "Release/vulnerability change tracking knowledge graph + GraphRAG"
+description = "Public-sector IT ops/security knowledge graph + GraphRAG"
 requires-python = ">=3.11"
 dependencies = [
   "pydantic>=2.6",
   "pydantic-settings>=2.2",
   "pyyaml>=6.0",
   "structlog>=24.1",
+  "psycopg[binary]>=3.1",
 ]
 
 [project.optional-dependencies]
@@ -23,6 +24,7 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+markers = ["integration: needs running docker services (deselect with -m 'not integration')"]
 
 [tool.ruff]
 line-length = 100

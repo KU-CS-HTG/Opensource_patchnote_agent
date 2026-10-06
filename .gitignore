@@ -5,7 +5,9 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 *.egg-info/
+# collected raw documents may carry restrictive licenses: never commit
 data/*
 !data/.gitkeep
+backups/
 logs/
 .ipynb_checkpoints/
