@@ -1,0 +1,133 @@
+# Linux-server assumption: run inside WSL2 Ubuntu (repo under ~/, not /mnt/c).
+# Only collection needs outbound internet; query/embedding/LLM stages must work offline.
+name: opsgraph
+
+x-logging: &default-logging
+  driver: json-file
+  options: { max-size: "10m", max-file: "5" }
+
+x-airflow-common: &airflow-common
+  build: { context: ., dockerfile: docker/airflow/Dockerfile }
+  profiles: ["airflow"]
+  restart: unless-stopped
+  logging: *default-logging
+  security_opt: ["no-new-privileges:true"]
+  environment: &airflow-env
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    AIRFLOW__CORE__PARALLELISM: "4"
+    AIRFLOW__WEBSERVER__WORKERS: "2"
+    AIRFLOW__CORE__FERNET_KEY: ${AIRFLOW_FERNET_KEY:-}
+    AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW_SECRET_KEY:?set AIRFLOW_SECRET_KEY in .env}
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_DB_USER}:${AIRFLOW_DB_PASSWORD}@postgres:5432/airflow
+    # task settings: inside the compose network, collectors use the collector role only
+    POSTGRES_HOST: postgres
+    POSTGRES_PORT: "5432"
+    POSTGRES_DB: ${POSTGRES_DB}
+    DB_COLLECTOR_USER: ${DB_COLLECTOR_USER}
+    DB_COLLECTOR_PASSWORD: ${DB_COLLECTOR_PASSWORD}
+    NEO4J_URI: bolt://neo4j:7687
+    NEO4J_USER: ${NEO4J_USER}
+    NEO4J_PASSWORD: ${NEO4J_PASSWORD}
+    HTTP_CONTACT: ${HTTP_CONTACT:-}
+    NVD_API_KEY: ${NVD_API_KEY:-}
+  volumes:
+    - ./dags:/opt/airflow/dags:ro
+    - ./config:/opt/opsgraph/config:ro
+    - ./data:/opt/opsgraph/data
+  depends_on:
+    postgres: { condition: service_healthy }
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    logging: *default-logging
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 1g
+    environment:
+      POSTGRES_USER: ${POSTGRES_SUPERUSER}
+      POSTGRES_PASSWORD: ${POSTGRES_SUPERUSER_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      DB_OWNER_USER: ${DB_OWNER_USER}
+      DB_OWNER_PASSWORD: ${DB_OWNER_PASSWORD}
+      DB_COLLECTOR_USER: ${DB_COLLECTOR_USER}
+      DB_COLLECTOR_PASSWORD: ${DB_COLLECTOR_PASSWORD}
+      DB_READER_USER: ${DB_READER_USER}
+      DB_READER_PASSWORD: ${DB_READER_PASSWORD}
+      AIRFLOW_DB_USER: ${AIRFLOW_DB_USER}
+      AIRFLOW_DB_PASSWORD: ${AIRFLOW_DB_PASSWORD}
+    ports: ["127.0.0.1:${POSTGRES_PORT:-5432}:5432"]   # loopback only
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
+      - ./backups:/backups                              # backup target (Phase 7)
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_SUPERUSER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  neo4j:
+    image: neo4j:5-community
+    restart: unless-stopped
+    logging: *default-logging
+    security_opt: ["no-new-privileges:true"]
+    mem_limit: 1536m
+    environment:
+      NEO4J_AUTH: ${NEO4J_USER}/${NEO4J_PASSWORD}
+      NEO4J_server_memory_heap_initial__size: 512m
+      NEO4J_server_memory_heap_max__size: 768m
+      NEO4J_server_memory_pagecache_size: 256m
+    ports:
+      - "127.0.0.1:7474:7474"
+      - "127.0.0.1:7687:7687"
+    volumes:
+      - neo4jdata:/data
+      - neo4jlogs:/logs
+      - ./backups:/backups
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:7474 >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 18
+
+  airflow-init:
+    <<: *airflow-common
+    restart: "no"
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - >
+        airflow db migrate &&
+        (airflow users create --username "$${AIRFLOW_ADMIN_USER}" --password "$${AIRFLOW_ADMIN_PASSWORD}"
+        --firstname Admin --lastname User --role Admin --email admin@example.com || true)
+    environment:
+      <<: *airflow-env
+      AIRFLOW_ADMIN_USER: ${AIRFLOW_ADMIN_USER:-admin}
+      AIRFLOW_ADMIN_PASSWORD: ${AIRFLOW_ADMIN_PASSWORD:?set AIRFLOW_ADMIN_PASSWORD in .env}
+
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    mem_limit: 1g
+    ports: ["127.0.0.1:8080:8080"]
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    depends_on:
+      airflow-init: { condition: service_completed_successfully }
+
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    mem_limit: 1g
+    depends_on:
+      airflow-init: { condition: service_completed_successfully }
+
+volumes:
+  pgdata:
+  neo4jdata:
+  neo4jlogs:

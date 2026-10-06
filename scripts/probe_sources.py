@@ -78,7 +78,8 @@ def main() -> None:
             r = fetch(host.rstrip("/") + "/robots.txt", ua)
             (d / f"robots_{slug(host)}.txt").write_bytes(r.pop("_body"))
             rec["robots"].append({k: v for k, v in r.items()})
-            if s.get("sample_target") and s["sample_target"].startswith(host) and r.get("status") == 200:
+            sample = s.get("sample_target")
+            if sample and sample.startswith(host) and r.get("status") == 200:
                 rp = urllib.robotparser.RobotFileParser()
                 rp.parse((d / f"robots_{slug(host)}.txt").read_text(errors="replace").splitlines())
                 rec["sample_allowed_by_robots"] = rp.can_fetch(ua, s["sample_target"])
@@ -91,7 +92,8 @@ def main() -> None:
             r = fetch(u, ua)
             (d / f"page_{slug(u)}.html").write_bytes(r.pop("_body"))
             rec["pages"].append(r)
-        (d / "probe.json").write_text(json.dumps(rec, ensure_ascii=False, indent=2), encoding="utf-8")
+        dump = json.dumps(rec, ensure_ascii=False, indent=2)
+        (d / "probe.json").write_text(dump, encoding="utf-8")
         ok = sum(1 for p in rec["pages"] if p.get("status") == 200)
         print(f"{s['id']:<18} pages ok {ok}/{len(rec['pages'])}  robots "
               f"{[r.get('status') for r in rec['robots']]}")

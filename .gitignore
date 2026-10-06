@@ -8,6 +8,7 @@ __pycache__/
 # collected raw documents may carry restrictive licenses: never commit
 data/*
 !data/.gitkeep
-backups/
+backups/*
+!backups/.gitkeep
 logs/
 .ipynb_checkpoints/

@@ -1,0 +1,8 @@
+# Approved data sources ONLY. Add an entry after the source is approved in docs/sources/SOURCES.md
+# (status: approved | conditional). Collectors refuse sources that are not listed here.
+sources: []
+# Example (do not enable before approval):
+# - id: ubuntu-security
+#   status: conditional
+#   conditions: ["respect Crawl-delay >= 1s", "license confirmed in SOURCES.md"]
+#   min_interval_seconds: 2

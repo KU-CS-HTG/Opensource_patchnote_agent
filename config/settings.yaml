@@ -1,0 +1,8 @@
+# Non-secret runtime settings. Secrets live in .env.
+http:                         # used only by the collection stage (needs external network)
+  min_interval_seconds: { default: 2.0 }   # per-host gap; raised per source in sources.yaml
+  timeout_seconds: 30
+  max_retries: 4
+  respect_robots_txt: true
+  cache_dir: data/http_cache
+  cache_ttl_seconds: 86400
