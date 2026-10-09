@@ -1,0 +1,47 @@
+{
+  "id": "law-go-kr",
+  "robots": [
+    {
+      "url": "https://open.law.go.kr/robots.txt",
+      "fetched_at": "2026-10-09T07:37:20.507195+00:00",
+      "status": 200,
+      "final_url": "https://open.law.go.kr/LSO/missing.html",
+      "headers": {
+        "Last-Modified": "Wed, 04 Mar 2026 08:47:47 GMT",
+        "ETag": "\"de-64c2edfd3bdf6\"",
+        "Content-Length": "222",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "sha256": "b96a79099b5e79da9a777c8c0fad4fce564e565623ac5a809a9fcbc6200992b8",
+      "bytes": 222
+    },
+    {
+      "url": "https://www.law.go.kr/robots.txt",
+      "fetched_at": "2026-10-09T07:37:21.881020+00:00",
+      "status": 200,
+      "final_url": "https://www.law.go.kr/robots.txt",
+      "headers": {
+        "Last-Modified": "Fri, 21 Mar 2025 02:00:54 GMT",
+        "ETag": "\"42-630d09fe24180\"",
+        "Content-Length": "66",
+        "Content-Type": "text/plain; charset=UTF-8"
+      },
+      "sha256": "bdf6e8d2c4792183feb41f8b1440551715d4564d5156cc74e67c54648d013133",
+      "bytes": 66
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "fetched_at": "2026-10-09T07:37:22.989279+00:00",
+      "status": 200,
+      "final_url": "https://open.law.go.kr/LSO/openApi/guideList.do",
+      "headers": {
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "sha256": "b04e5f7e022a706707850aef277d7bb8ee2c1eb14385ea51c87962645d15b3c3",
+      "bytes": 62520
+    }
+  ],
+  "sample_allowed_by_robots": null
+}

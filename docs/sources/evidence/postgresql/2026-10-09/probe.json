@@ -1,0 +1,42 @@
+{
+  "id": "postgresql",
+  "robots": [
+    {
+      "url": "https://www.postgresql.org/robots.txt",
+      "fetched_at": "2026-10-09T07:37:33.097122+00:00",
+      "status": 200,
+      "final_url": "https://www.postgresql.org/robots.txt",
+      "headers": {
+        "Content-Type": "text/plain; charset=UTF-8",
+        "Content-Length": "273"
+      },
+      "sha256": "44d41cd563a231327036a3b84ea0c78a05c66807b5f62c43158213448d28e308",
+      "bytes": 273
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.postgresql.org/about/licence/",
+      "fetched_at": "2026-10-09T07:37:35.858831+00:00",
+      "status": 200,
+      "final_url": "https://www.postgresql.org/about/licence/",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "sha256": "ecc2a8f75f01bde9763c906fe1b1da7f7c3fb1c3f9a4a13bcb736678be8ed80c",
+      "bytes": 8073
+    },
+    {
+      "url": "https://www.postgresql.org/support/security/",
+      "fetched_at": "2026-10-09T07:37:37.700875+00:00",
+      "status": 200,
+      "final_url": "https://www.postgresql.org/support/security/",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "sha256": "98216dcbad668071c4599fd717cdd1708d0dcf208c801948678018d464f356c9",
+      "bytes": 68581
+    }
+  ],
+  "sample_allowed_by_robots": null
+}

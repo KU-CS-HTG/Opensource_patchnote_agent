@@ -1,0 +1,33 @@
+{
+  "id": "cis",
+  "robots": [
+    {
+      "url": "https://www.cisecurity.org/robots.txt",
+      "fetched_at": "2026-10-09T07:38:09.729042+00:00",
+      "status": 200,
+      "final_url": "https://www.cisecurity.org/robots.txt",
+      "headers": {
+        "Content-Type": "text/plain; charset=UTF-8",
+        "Content-Length": "94",
+        "ETag": "W/\"5e-1a117ce6a30\"",
+        "Last-Modified": "Wed, 07 Oct 2026 19:19:26 GMT"
+      },
+      "sha256": "ee3112100261207458d11d52282460c01a25f1facd0cba2666408a48bf29ef93",
+      "bytes": 94
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.cisecurity.org/terms-of-use-for-non-member-cis-products",
+      "fetched_at": "2026-10-09T07:38:11.061297+00:00",
+      "status": 200,
+      "final_url": "https://www.cisecurity.org/terms-of-use-for-non-member-cis-products",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "sha256": "b66992dc362200be4d96aa45bb6cf8d5d94a5c64ff55accbe075f64cf24a83a7",
+      "bytes": 200000
+    }
+  ],
+  "sample_allowed_by_robots": null
+}

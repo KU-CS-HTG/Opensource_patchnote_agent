@@ -1,0 +1,26 @@
+User-agent: Yeti
+User-agent: Googlebot
+User-agent: Googlebot-Image
+Allow: /$
+Allow: /CM
+Allow: /AF
+Allow: /ID
+Disallow: /GD
+
+Allow: /recruit
+#Allow: /online
+Allow: /community
+Allow: /docs
+Allow: /app
+Allow: /jsp
+Allow: /main
+Allow: /common
+Allow: /resources
+#Allow: /kmcis
+#Allow: /auth
+Allow: /nissc
+#Allow: /contents
+#Allow: /nis
+
+User-agent: *
+Disallow: /

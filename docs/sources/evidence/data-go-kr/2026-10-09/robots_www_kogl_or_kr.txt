@@ -1,0 +1,4 @@
+User-agent: Googlebot
+Disallow: /recommend/recommendDivList.do
+Disallow: /search/search.do
+Disallow: /search/searchList.do

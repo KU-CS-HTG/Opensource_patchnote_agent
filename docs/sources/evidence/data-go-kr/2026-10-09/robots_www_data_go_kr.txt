@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /tcs/dss/selectDataSetList.do
+Disallow: /tcs/vas/
+Disallow: /tcs/lms/mpm/
+Disallow: /bbs/dnb/
+Disallow: /bbs/dsb/
+Disallow: /bbs/qna/selectQna.do
