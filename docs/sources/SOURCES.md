@@ -1,6 +1,6 @@
 # 데이터 출처 조사표 (승인 게이트)
 
-수집은 **이 표에서 "승인" 처리된 출처만** 한다. 조사일 2026-10-06. 판정 열은 사람이 채운다.
+수집은 **이 표에서 "승인" 처리된 출처만** 한다. 조사일 2026-10-06(Ubuntu 일부), 2026-10-09(전체 robots·접근성). 판정 열은 사람이 채운다.
 
 ## 증거 수집 방법
 1. 본 조사는 클라우드 환경에서 수행했고, 네트워크 정책 때문에 `ubuntu.com`, `pypi.org` 외 대부분의 도메인이 차단되었다.
@@ -23,41 +23,38 @@
 | 제외 | 약관이 자동 수집·재가공을 금지하거나 접근 조건(가입·동의)이 있음 |
 | 확인불가 | 접근 못 해서 근거를 못 얻음 → 확인 전까지 수집 금지 |
 
-## 조사표
+## 조사표 (robots.txt·접근성 확인 완료 / 약관·라이선스는 미확인)
 
-| ID | 출처 | 제공 방식(사전 지식, 미검증) | robots.txt | 약관·라이선스 | 한도 | 현재 상태 | 판정 |
-|---|---|---|---|---|---|---|---|
-| nvd | NVD CVE API 2.0 | 공식 REST API, API 키 선택 | 확인불가 | 확인불가 | 확인불가 | 확인불가(차단) | 대기 |
-| osv | OSV.dev | 공식 API + 벌크 덤프 | 확인불가 | 확인불가(DB별 라이선스 상이 가능성) | 확인불가 | 확인불가(차단) | 대기 |
-| kisa-boho | KISA/KrCERT 보호나라 | API 여부 불명, HTML 게시판 가능성 | 확인불가 | 확인불가 | - | 확인불가(차단) | 대기 |
-| data-go-kr | 공공데이터포털 | 파일·Open API, 공공누리 유형 표기 | 확인불가 | 확인불가 | 확인불가 | 확인불가(차단) | 대기 |
-| law-go-kr | 국가법령정보센터 Open API | 행정규칙 API 존재 가능성 | 확인불가 | 확인불가 | 확인불가 | 확인불가(차단) | 대기 |
-| gov-guidelines | 과기정통부·행안부·국정원·NCSC 지침 | PDF/HTML 문서 | 확인불가 | 문서 단위 확인 필요 | - | 확인불가(차단) | 대기 |
-| postgresql | PostgreSQL 공식 보안 문서 | HTML | 확인불가 | 확인불가 | - | 확인불가(차단) | 대기 |
-| nginx | Nginx 보안 권고 | HTML | 확인불가 | 확인불가 | - | 확인불가(차단) | 대기 |
-| ubuntu-security | Ubuntu Security CVE API | JSON API (`/security/cves.json`) | **확인됨**(아래) | **미확인**(약관 페이지 접근 실패) | 문서상 한도 미확인 | 일부 확인 | 조건부 후보 |
-| debian-security | Debian Security Tracker | JSON 덤프 | 확인불가 | 확인불가 | - | 확인불가(차단) | 대기(선택) |
-| redhat-security | Red Hat Security Data API | 공식 REST API | 확인불가 | 확인불가 | 확인불가 | 확인불가(차단) | 대기(선택) |
-| cis | CIS Benchmarks | PDF, 가입·동의 필요 추정 | 확인불가 | 확인불가 | - | 확인불가(차단) | 제외 가능성 높음 |
+2026-10-09 PC(WSL)에서 `probe_sources.py` 실행 결과. 증거: `evidence/<id>/2026-10-09/{probe.json,robots_*.txt}`.
+약관·라이선스 본문(`page_*.html`)은 저작권 문제로 커밋하지 않았으므로 **본문 기반 항목은 아직 비어 있다**. 아래 "robots" 열은 저장된 robots.txt를 `urllib.robotparser`(UA `opsgraph-source-survey`)로 해석한 결과이다.
 
-## 상세 메모
+| ID | 접근 확인 | robots.txt 해석 | 약관·라이선스 | 한도 | 판정 |
+|---|---|---|---|---|---|
+| nvd | API 샘플 200 JSON. 약관·API 안내 페이지는 JS 렌더링 셸(2,092 B)만 와서 **본문 미확보** | `nvd.nist.gov/robots.txt`가 HTML(SPA)을 반환 → 유효한 robots 없음. `services.nvd.nist.gov` 404 → 규칙 없음 | 미확인(브라우저로 직접 확인 필요) | 미확인 | 대기 |
+| osv | 문서 2종 200, API 샘플 200 JSON | `api.osv.dev`, `google.github.io` 모두 404 → 규칙 없음 | 미확인(`/data/` 페이지 본문 필요) | 미확인 | 대기 |
+| kisa-boho | boho.or.kr 200. **www.kisa.or.kr은 SSL 인증서 검증 실패**(PC 환경) | boho·krcert: `googlebot`·`Yeti` 그룹만 있고 `*` 그룹 없음 → 우리 UA에 적용되는 규칙 없음(검색엔진 전용 의도로 보여 약관 확인 필수). kisa.or.kr은 미확보 | 미확인 | - | 대기 |
+| data-go-kr | 포털·공공누리 페이지 200 | 두 도메인 모두 `Googlebot` 그룹만 존재 → 우리 UA 규칙 없음 | 미확인(공공누리 유형은 자료별 확인) | 미확인 | 대기 |
+| law-go-kr | law.go.kr 200, open.law.go.kr API 안내 200 | law.go.kr: `Allow: /`. open.law.go.kr: robots 경로가 "Page Not Found" HTML → 규칙 없음 | 미확인 | 미확인 | 대기 |
+| gov-guidelines | msit·mois·nis·ncsc 메인 200 | msit·mois: 허용(msit는 검색 경로만 금지). **nis.go.kr: `User-agent: *` → `Disallow: /`(검색엔진 일부만 허용) → 수집 불가**. ncsc: robots 대신 오류 HTML → 규칙 없음 | 미확인(문서 단위) | - | **nis 제외**, 나머지 대기 |
+| postgresql | 라이선스·보안 페이지 200 | `/docs/devel/` 등 일부 금지, 보안 페이지·`/docs/16/` 허용. Crawl-delay 없음 | 라이선스 페이지 확보(8 KB), 미독 | - | 대기(유력) |
+| nginx | LICENSE·보안 권고 200 | `Disallow: /libxslt/`만 → 보안 권고 허용 | 미확인 | - | 대기(유력) |
+| ubuntu-security | JSON API 200, IP 정책 페이지 200(미독) | `/security` 허용, Crawl-delay 1 | 미독 | 문서 미확인 | 조건부 후보 |
+| debian-security | 라이선스 페이지·JSON 덤프 200 | 두 도메인 robots 404 → 규칙 없음 | 미독 | - | 대기(선택) |
+| redhat-security | 약관·API 200 | `User-agent: *`에서 API 경로 허용, **Crawl-delay 10** | 미독 | 문서 미확인 | 대기(선택) |
+| cis | 약관 페이지 200 | `Disallow:` 비어 있음(전체 허용), Crawl-delay 10 | 미독(가입·재배포 제한 추정) | - | 제외 가능성 높음 |
 
-### ubuntu-security (2026-10-06 확인분)
-- 증거: `evidence/ubuntu-security/2026-10-06/` (robots 원문, probe.json).
-- `https://ubuntu.com/robots.txt` HTTP 200. `User-Agent: *`의 Disallow는 `/search`, `/account`, `/login`, `/pro/...` 등이며
-  `Allow: /security`와 `Crawl-delay: 1` 및 `Crawl-delay: 2` 그룹이 존재한다(어느 그룹이 우리 UA에 적용되는지는 증거 파일에서 확인).
-  파서 결과: `https://ubuntu.com/security/cves.json?limit=1`은 robots상 허용, crawl_delay=1.
-- `GET https://ubuntu.com/security/cves.json?limit=1` HTTP 200, `application/json`. 인증 불필요. 응답 구조는 `{"cves":[{id, published, updated_at, description, ...}]}`.
-- **미확인**: 데이터 재사용 라이선스. IP 정책 페이지(`/legal/terms-and-policies/intellectual-property-policy`)는 프록시 403으로 읽지 못했다. PC에서 확인 필요.
-- **미확인**: API 호출 한도 명시 여부(`documentation.ubuntu.com/security/` 문서는 접근되었으나 조항 확인은 아직 안 함).
-- 판정 제안: 라이선스 확인 전까지 "조건부 후보". 승인 시 호출 간격은 robots의 crawl-delay 이상(1 req/s 이하)으로 둔다.
+## 이번 조사에서 확정된 사실
+1. **국정원(nis.go.kr)은 robots.txt가 일반 크롤러를 전부 막는다** → 수집 대상에서 제외한다.
+2. **NVD의 약관·FAQ 페이지는 정적 HTML이 아니라 JS 앱**이라 스크립트로 본문을 못 읽는다. API 자체는 정상 응답한다. 약관은 브라우저에서 직접 읽어 조항을 인용해야 한다(Selenium은 약관 읽기용으로 쓰지 않는다).
+3. **robots.txt 자리에 HTML이 오는 사이트가 4곳**(nvd.nist.gov, open.law.go.kr, ncsc.go.kr 등)이다. 이는 "허용"의 증거가 아니라 "규칙을 알 수 없음"이므로 약관 근거가 더 중요하다.
+4. KISA·KrCERT·공공데이터포털은 robots가 **검색엔진 이름을 지정한 그룹만** 갖고 있다. 규칙상 우리 UA는 제한이 없지만, 검색엔진 색인용 설정이라 자동 수집 허용의 근거가 되지 못한다. 약관과 공공누리 유형 확인이 필수다.
+5. Crawl-delay 요구: Ubuntu 1초, Red Hat 10초, CIS 10초. 승인 시 `sources.yaml`의 `min_interval_seconds`에 반영한다.
+6. `www.kisa.or.kr`은 이 PC에서 TLS 검증이 실패한다. 인증서 검증을 끄지 말고(`verify=False` 금지), 원인(중간 인증서 누락 여부)을 브라우저에서 확인한 뒤 판단한다.
 
-### 나머지 출처
-증거 수집 후 같은 형식으로 추가한다. 각 출처마다 아래 4가지를 반드시 인용한다.
-1. 자동 수집(스크레이핑·API 호출)에 관한 조항
-2. 저장·재가공·재배포에 관한 조항(공공누리면 유형 1~4 중 무엇인지, 변경금지·상업금지 여부)
-3. robots.txt 중 우리가 접근할 경로에 대한 규칙과 Crawl-delay
-4. API 키 요구, 호출 한도
+## 다음에 필요한 입력 (약관·라이선스 판정용)
+본문 파일은 올리지 않았으므로, 판정이 필요한 출처의 **조항 원문**이 필요하다. 아래 중 편한 방식을 고르면 된다.
+- (a) 우선순위 출처의 해당 조항을 채팅에 붙여넣기: NVD 약관/데이터 이용, OSV `/data/` 라이선스 문단, Ubuntu IP 정책, 공공누리 유형 설명, KISA 이용약관.
+- (b) 저장소가 **private**이면 약관·라이선스 페이지 본문(`page_*.html` 중 법적 페이지만)을 커밋해서 제가 직접 읽기.
 
 ## 우선순위 제안 (승인 전 가설)
 - 1순위: NVD, OSV (취약점의 근간, 공식 API)
