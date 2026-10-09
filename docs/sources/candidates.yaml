@@ -1,0 +1,91 @@
+# Candidate data sources to survey. `scripts/probe_sources.py` reads this file, fetches
+# robots.txt + terms/license/API-doc pages (GET only, 1 req/s, identifying User-Agent),
+# and stores evidence under docs/sources/evidence/<id>/<date>/.
+# URLs below are starting points written from memory and MAY BE WRONG: a 404 in the
+# evidence means "path to be found manually", not "source unavailable".
+sources:
+  - id: nvd
+    name: NVD (NIST) CVE API 2.0
+    kind: vuln-db
+    pages:
+      terms: [https://nvd.nist.gov/general/FAQ-Sections/General-FAQs, https://www.nist.gov/oism/copyright]
+      api_doc: [https://nvd.nist.gov/developers/start-here]
+    sample_target: https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=1
+    robots_hosts: [https://nvd.nist.gov, https://services.nvd.nist.gov]
+  - id: osv
+    name: OSV.dev
+    kind: vuln-db
+    pages:
+      terms: [https://google.github.io/osv.dev/data/]
+      api_doc: [https://google.github.io/osv.dev/api/]
+    sample_target: https://api.osv.dev/v1/vulns/GHSA-xvch-5gv4-984h
+    robots_hosts: [https://api.osv.dev, https://google.github.io]
+  - id: kisa-boho
+    name: KISA / KrCERT 보호나라 (보안공지, 가이드)
+    kind: public-agency
+    pages:
+      terms: [https://www.boho.or.kr/, https://www.kisa.or.kr/]
+    robots_hosts: [https://www.boho.or.kr, https://www.kisa.or.kr, https://www.krcert.or.kr]
+    note: 가이드·공지 게시판의 정확한 경로와 약관 페이지는 수동 확인 필요
+  - id: data-go-kr
+    name: 공공데이터포털 (KISA 등 공개 API/파일데이터)
+    kind: public-agency
+    pages:
+      terms: [https://www.data.go.kr/]
+      license: [https://www.kogl.or.kr/info/license.do]
+    robots_hosts: [https://www.data.go.kr, https://www.kogl.or.kr]
+  - id: law-go-kr
+    name: 국가법령정보센터 Open API (행정규칙·지침)
+    kind: public-agency
+    pages:
+      api_doc: [https://open.law.go.kr/LSO/openApi/guideList.do]
+    robots_hosts: [https://open.law.go.kr, https://www.law.go.kr]
+  - id: gov-guidelines
+    name: 과기정통부·행안부·국정원·NCSC 정보보호 지침 문서(PDF/HTML)
+    kind: public-agency
+    pages:
+      terms: [https://www.msit.go.kr/, https://www.mois.go.kr/, https://www.nis.go.kr/, https://www.ncsc.go.kr/]
+    robots_hosts: [https://www.msit.go.kr, https://www.mois.go.kr, https://www.nis.go.kr, https://www.ncsc.go.kr]
+    note: 개별 지침 문서의 공공누리 유형은 문서 단위로 확인해야 함
+  - id: postgresql
+    name: PostgreSQL 공식 보안 문서·CVE 목록
+    kind: product-docs
+    pages:
+      terms: [https://www.postgresql.org/about/licence/]
+      security: [https://www.postgresql.org/support/security/]
+    robots_hosts: [https://www.postgresql.org]
+  - id: nginx
+    name: Nginx 공식 보안 권고·문서
+    kind: product-docs
+    pages:
+      terms: [https://nginx.org/LICENSE]
+      security: [https://nginx.org/en/security_advisories.html]
+    robots_hosts: [https://nginx.org]
+  - id: ubuntu-security
+    name: Ubuntu Security (CVE API, USN)
+    kind: distro-security
+    pages:
+      terms: [https://ubuntu.com/legal/terms-and-policies/intellectual-property-policy]
+      api_doc: [https://documentation.ubuntu.com/security/docs/]
+    sample_target: https://ubuntu.com/security/cves.json?limit=1
+    robots_hosts: [https://ubuntu.com]
+  - id: debian-security
+    name: Debian Security Tracker (비교용, 선택)
+    kind: distro-security
+    pages:
+      terms: [https://www.debian.org/legal/licenses/]
+      api_doc: [https://security-tracker.debian.org/tracker/data/json]
+    robots_hosts: [https://www.debian.org, https://security-tracker.debian.org]
+  - id: redhat-security
+    name: Red Hat Security Data API (비교용, 선택)
+    kind: distro-security
+    pages:
+      terms: [https://www.redhat.com/en/about/terms-use]
+      api_doc: ["https://access.redhat.com/hydra/rest/securitydata/cve.json?per_page=1"]
+    robots_hosts: [https://access.redhat.com]
+  - id: cis
+    name: CIS Benchmarks (제외 가능성 높음, 확인용)
+    kind: benchmark
+    pages:
+      terms: [https://www.cisecurity.org/terms-of-use-for-non-member-cis-products]
+    robots_hosts: [https://www.cisecurity.org]

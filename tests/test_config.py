@@ -3,50 +3,61 @@ import json
 import pytest
 from pydantic import ValidationError
 
-from patchnote.config import PackagesConfig, Settings, load_app_config, load_packages
-from patchnote.logging import configure_logging, get_logger
+from opsgraph.config import (
+    ModelsConfig,
+    Settings,
+    SourcesConfig,
+    load_app_config,
+    load_models,
+    load_sources,
+)
+from opsgraph.logging import configure_logging, get_logger
 
 
-def test_repo_packages_yaml_is_valid():
-    cfg = load_packages()
-    assert 1 <= len(cfg.packages) <= 5
-    assert all("/" in p.github for p in cfg.packages)
-
-
-def test_settings_yaml_loads():
+def test_repo_configs_load():
+    assert load_sources().sources == []  # nothing approved yet
     assert load_app_config().http.max_retries >= 1
+    m = load_models()
+    assert m.embedding.provider == "local" and m.llm.provider == "local"
+    assert m.allow_external is False
 
 
-def test_duplicate_packages_rejected():
-    p = {"name": "a", "pypi": "a", "github": "o/a"}
+def test_unapproved_source_is_refused():
+    with pytest.raises(KeyError):
+        SourcesConfig().get("nvd")
+
+
+def test_conditional_source_needs_conditions():
     with pytest.raises(ValidationError):
-        PackagesConfig.model_validate({"packages": [p, p]})
+        SourcesConfig.model_validate({"sources": [{"id": "x", "status": "conditional"}]})
 
 
-def test_too_many_packages_rejected():
-    ps = [{"name": f"p{i}", "pypi": f"p{i}", "github": f"o/p{i}"} for i in range(6)]
+def test_duplicate_source_ids_rejected():
+    s = {"id": "x", "status": "approved"}
     with pytest.raises(ValidationError):
-        PackagesConfig.model_validate({"packages": ps})
+        SourcesConfig.model_validate({"sources": [s, s]})
 
 
-def test_bad_github_repo_rejected():
+def test_external_provider_requires_opt_in():
     with pytest.raises(ValidationError):
-        PackagesConfig.model_validate(
-            {"packages": [{"name": "a", "pypi": "a", "github": "not-a-repo"}]}
-        )
+        ModelsConfig.model_validate({"embedding": {"provider": "api"}})
+    ok = ModelsConfig.model_validate({"allow_external": True, "llm": {"provider": "api"}})
+    assert ok.llm.provider == "api"
 
 
-def test_settings_from_env_and_redaction(monkeypatch):
-    monkeypatch.setenv("POSTGRES_PASSWORD", "s3cret")
+def test_dsn_uses_role_credentials_and_hides_secrets(monkeypatch):
+    monkeypatch.setenv("DB_READER_PASSWORD", "s3cret")
     monkeypatch.setenv("POSTGRES_HOST", "db")
+    monkeypatch.setenv("POSTGRES_PORT", "5432")
+    monkeypatch.delenv("DB_READER_USER", raising=False)
     s = Settings(_env_file=None)
-    assert s.postgres_dsn == "postgresql+psycopg://patchnote:s3cret@db:5432/patchnote"
+    assert s.dsn("reader") == "postgresql://og_reader:s3cret@db:5432/opsgraph"
+    assert s.dsn("collector").startswith("postgresql://og_collector:")
     assert "s3cret" not in repr(s)
 
 
 def test_logging_emits_json(capsys):
     configure_logging("INFO")
-    get_logger("t").info("hello", package="pandas")
-    line = capsys.readouterr().err.strip().splitlines()[-1]
-    rec = json.loads(line)
-    assert rec["event"] == "hello" and rec["package"] == "pandas" and rec["level"] == "info"
+    get_logger("t").info("hello", source="nvd")
+    rec = json.loads(capsys.readouterr().err.strip().splitlines()[-1])
+    assert rec["event"] == "hello" and rec["source"] == "nvd" and rec["level"] == "info"

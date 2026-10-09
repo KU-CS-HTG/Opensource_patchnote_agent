@@ -1,4 +1,4 @@
-"""Structured logging: JSON lines to stderr, via structlog on top of stdlib logging."""
+"""Structured logging: JSON lines to stderr (docker rotates them), via structlog on stdlib."""
 
 from __future__ import annotations
 
