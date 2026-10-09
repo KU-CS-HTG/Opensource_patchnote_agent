@@ -12,3 +12,4 @@ backups/*
 !backups/.gitkeep
 logs/
 .ipynb_checkpoints/
+docs/sources/evidence/**/page_*

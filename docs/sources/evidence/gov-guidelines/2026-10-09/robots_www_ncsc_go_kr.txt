@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html dir="ltr"lang="ko-KR" class="type_${metaClass} ie6 lte-ie9 lte-ie8 lte-ie7 lte-ie6"><![endif]-->
+<!--[if lte IE 7]><html dir="ltr"lang="ko-KR" class="type_${metaClass} ie7 lte-ie9 lte-ie8 lte-ie7"><![endif]-->
+<!--[if IE 8]><html dir="ltr"lang="ko-KR" class="type_${metaClass} ie8 lte-ie9 lte-ie8"><![endif]-->
+<!--[if IE 9]><html dir="ltr"lang="ko-KR" class="type_${metaClass} ie9 lte-ie9"><![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!-->
+<html dir="ltr" lang="ko-KR"><!--<![endif]-->
+<!-- <html dir="ltr" lang="ko-KR"><![endif] -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta http-equiv="content-language" content="ko">
+<title>ERROR</title>
+<style type="text/css">
+	#skip-nav{display:none;}
+	.error-wrap { position: absolute;top: 45%; left: 50%;width: 574px; margin: -133px 0 0 -283px; }
+	.error-wrap .inner {min-height: 221px; padding: 0 0 0 241px; background: url(/template/resources/images/basic/bg-error.png) no-repeat 0 10px; }
+	.error-wrap .inner .er-title { color: #324773; font-size: 20px; font-weight: bold; letter-spacing: -1px;}
+	.error-wrap .inner .er-cont {margin-top: 20px; padding: 20px 0 20px 0; border-top: 1px solid #cbcbcb; border-bottom: 1px solid #cbcbcb; font-size: 14px;}
+	.contents p { line-height: 24px; letter-spacing: -1px; margin:0;}
+	.btn-area { position: relative; margin-top: 30px; text-align: right;}
+	.inline-left { text-align: left !important;}
+	.error-wrap .inner .btn-area a:first-child { margin-left: 0;}
+	.error-wrap .inner .btn-area a { width: 142px; }
+	a.btn-cancel { min-width: 48px;}
+	.btn-cancel {display: inline-block; min-width: 119px; background: #7d828c; font-size: 16px; font-weight: bold; color: #fff !important; text-align: center; line-height: 1.5; vertical-align: middle; letter-spacing: -1px; text-align: center; padding: 10px 5px}
+	.btn-area a, .btn-area button { margin-left: 7px;}
+	.btn-area a { color: #666; letter-spacing: -1px;text-decoration: none;}
+	a.btn-confirm { min-width: 48px;}
+	.btn-confirm { display: inline-block; min-width: 118px; background: #bc9374; color: #fff !important; font-size: 16px; font-weight: bold; line-height: 1.5; vertical-align: middle; letter-spacing: -1px; text-align: center; padding: 10px 5px}
+	.font-blue02 { color:#547fb3;}
+</style>
+<script>
+	function fncGoAfterErrorPage(){
+	    history.back(-2);
+	}
+</script>
+</head>
+<body>
+<div id="wrap">
+    <!-- skip-nav -->
+    <div id="skip-nav">
+        <a href="#contents">콘텐츠 바로가기</a>
+    </div>
+    <!-- //skip-nav -->
+    <!-- contents -->
+    <div id="contents" class="contents">
+        <div class="error-wrap">
+            <div class="inner">
+                <h1 class="er-title">요청하신 페이지를 찾을 수가 없습니다.</h1>
+                <div class="er-cont">
+                    <p>찾으시려는 페이지의 주소가 잘못 입력되어 있거나, <br>서버에 사용자가 많아 일시적으로 접속이 불가능합니다.  </p>
+                    <p style="padding-top:10px;">이 메시지가 계속 될 경우 <span class="font-blue02">Q&A</span>로 <br>문의해 주시면 최선을 다해 답변 드리겠습니다. </p>
+                </div>
+                <h1 class="er-title">Requested page not found.</h1>
+                <div class="er-cont">
+                    <p>The page you are looking for doesn't exist.<br>Or server is busy.  </p>
+                </div>
+                <div class="btn-area inline-left">
+                    <a href="#" onclick="fncGoAfterErrorPage(); return false;" class="btn-cancel">이전 페이지<br/>(Prev)</a>
+                    <a href="/ko/main/main.html" class="btn-confirm">메인 페이지<br/>(Homepage)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //contents -->
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{
+  "id": "redhat-security",
+  "robots": [
+    {
+      "url": "https://access.redhat.com/robots.txt",
+      "fetched_at": "2026-10-09T07:38:05.054523+00:00",
+      "status": 200,
+      "final_url": "https://access.redhat.com/robots.txt",
+      "headers": {
+        "Last-Modified": "Fri, 09 Oct 2026 07:01:18 GMT",
+        "ETag": "\"1791529278-gzip\"",
+        "Content-Type": "text/plain; charset=UTF-8",
+        "Content-Length": "4387"
+      },
+      "sha256": "b24da2e98556900cae0db111a470baa3672e3ed420eb66c9d48ca42a9cc96f02",
+      "bytes": 4387
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.redhat.com/en/about/terms-use",
+      "fetched_at": "2026-10-09T07:38:06.383635+00:00",
+      "status": 200,
+      "final_url": "https://www.redhat.com/en/about/terms-use",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "sha256": "bcb504a1462d470e83578c1f3361a04cf2bca434fcaf3d29e1d99587900d0d8d",
+      "bytes": 200000
+    },
+    {
+      "url": "https://access.redhat.com/hydra/rest/securitydata/cve.json?per_page=1",
+      "fetched_at": "2026-10-09T07:38:08.158884+00:00",
+      "status": 200,
+      "final_url": "https://access.redhat.com/hydra/rest/securitydata/cve.json?per_page=1",
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "570"
+      },
+      "sha256": "7129baa3fe575845fd0597c95e476a6a814a0dd0378558a7037c6b9ea01bae68",
+      "bytes": 570
+    }
+  ],
+  "sample_allowed_by_robots": null
+}

@@ -1,0 +1,74 @@
+{
+  "id": "nvd",
+  "robots": [
+    {
+      "url": "https://nvd.nist.gov/robots.txt",
+      "fetched_at": "2026-10-09T07:36:50.587000+00:00",
+      "status": 200,
+      "final_url": "https://nvd.nist.gov/robots.txt",
+      "headers": {
+        "Content-Type": "text/html",
+        "last-modified": "Wed, 23 Sep 2026 15:29:20 GMT"
+      },
+      "sha256": "e038189188ef9da30daf9b65162e2b0b2b4f0cb12cc6df33eda5e40fec79b034",
+      "bytes": 1154
+    },
+    {
+      "url": "https://services.nvd.nist.gov/robots.txt",
+      "fetched_at": "2026-10-09T07:36:52.329745+00:00",
+      "status": 404,
+      "final_url": "https://services.nvd.nist.gov/robots.txt",
+      "headers": {},
+      "sha256": "dc1d54dab6ec8c00f70137927504e4f222c8395f10760b6beecfcfa94e08249f",
+      "bytes": 1245
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://nvd.nist.gov/general/FAQ-Sections/General-FAQs",
+      "fetched_at": "2026-10-09T07:36:55.182486+00:00",
+      "status": 200,
+      "final_url": "https://nvd.nist.gov/general/faq-sections/general-faqs",
+      "headers": {
+        "Content-Type": "text/html",
+        "last-modified": "Wed, 23 Sep 2026 15:29:20 GMT"
+      },
+      "sha256": "2ac08e6e172217442e7d7476e50a03b48849561c372af5258fc4a9ff50883da3",
+      "bytes": 2092
+    },
+    {
+      "url": "https://www.nist.gov/oism/copyright",
+      "fetched_at": "2026-10-09T07:36:57.568223+00:00",
+      "status": 404,
+      "final_url": "https://www.nist.gov/oism/copyright",
+      "headers": {},
+      "sha256": "023666a06adc3f291ddddc3d1aff4d64dbe939631e2508fa6477b600c6174c81",
+      "bytes": 72203
+    },
+    {
+      "url": "https://nvd.nist.gov/developers/start-here",
+      "fetched_at": "2026-10-09T07:37:00.200394+00:00",
+      "status": 200,
+      "final_url": "https://nvd.nist.gov/developers/start-here",
+      "headers": {
+        "Content-Type": "text/html",
+        "last-modified": "Wed, 23 Sep 2026 15:29:20 GMT"
+      },
+      "sha256": "cabad74facb765fd02e03bfdf6a4e1cfe4f2da3b5cb567ad24c11f99b17ef7ed",
+      "bytes": 2092
+    },
+    {
+      "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=1",
+      "fetched_at": "2026-10-09T07:37:02.136608+00:00",
+      "status": 200,
+      "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?resultsPerPage=1",
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "2517"
+      },
+      "sha256": "3f2741ad69846d30ddf4d27b48c4f6d9df2c7debe3f7a6dfb57dbd5e06883d00",
+      "bytes": 2517
+    }
+  ],
+  "sample_allowed_by_robots": null
+}

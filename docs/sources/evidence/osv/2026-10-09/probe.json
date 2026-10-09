@@ -1,0 +1,66 @@
+{
+  "id": "osv",
+  "robots": [
+    {
+      "url": "https://api.osv.dev/robots.txt",
+      "fetched_at": "2026-10-09T07:37:03.835268+00:00",
+      "status": 404,
+      "final_url": "https://api.osv.dev/robots.txt",
+      "headers": {},
+      "sha256": "ff24d3a8fe2346cfce7f98a1eaada07653ad06b2310852c24c5df53fbe7c5bbd",
+      "bytes": 73
+    },
+    {
+      "url": "https://google.github.io/robots.txt",
+      "fetched_at": "2026-10-09T07:37:05.312250+00:00",
+      "status": 404,
+      "final_url": "https://google.github.io/robots.txt",
+      "headers": {},
+      "sha256": "d469bc2548a2a41d2dfaa404a5d6b28eef7f1aadb3ab9de1203a71c50b13b57b",
+      "bytes": 10416
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://google.github.io/osv.dev/data/",
+      "fetched_at": "2026-10-09T07:37:06.579433+00:00",
+      "status": 200,
+      "final_url": "https://google.github.io/osv.dev/data/",
+      "headers": {
+        "Content-Length": "25628",
+        "Content-Type": "text/html; charset=utf-8",
+        "Last-Modified": "Thu, 08 Oct 2026 22:59:22 GMT",
+        "ETag": "\"6ac8204a-641c\""
+      },
+      "sha256": "24267952baa3dcabc5e17b3a15708506583386c240ccf8becba332702c768535",
+      "bytes": 25628
+    },
+    {
+      "url": "https://google.github.io/osv.dev/api/",
+      "fetched_at": "2026-10-09T07:37:07.842639+00:00",
+      "status": 200,
+      "final_url": "https://google.github.io/osv.dev/api/",
+      "headers": {
+        "Content-Length": "15262",
+        "Content-Type": "text/html; charset=utf-8",
+        "Last-Modified": "Thu, 08 Oct 2026 22:59:22 GMT",
+        "ETag": "\"6ac8204a-3b9e\""
+      },
+      "sha256": "2adc2ca07f98ac574eb05852178613a9e7a19316cc9ed02e7ec2425c69e05e0a",
+      "bytes": 15262
+    },
+    {
+      "url": "https://api.osv.dev/v1/vulns/GHSA-xvch-5gv4-984h",
+      "fetched_at": "2026-10-09T07:37:09.087478+00:00",
+      "status": 200,
+      "final_url": "https://api.osv.dev/v1/vulns/GHSA-xvch-5gv4-984h",
+      "headers": {
+        "content-type": "application/json",
+        "Content-Length": "2615"
+      },
+      "sha256": "e7d89f51945d5c30be36d6fdcbeb9fc6606a4cfca4c46c520847f2eaad0f2fde",
+      "bytes": 2615
+    }
+  ],
+  "sample_allowed_by_robots": null
+}

@@ -1,0 +1,50 @@
+{
+  "id": "nginx",
+  "robots": [
+    {
+      "url": "https://nginx.org/robots.txt",
+      "fetched_at": "2026-10-09T07:37:40.078586+00:00",
+      "status": 200,
+      "final_url": "https://nginx.org/robots.txt",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Content-Length": "72",
+        "Last-Modified": "Thu, 24 Jan 2013 15:21:20 GMT",
+        "ETag": "\"51015170-48\""
+      },
+      "sha256": "8f5b42f5d23ca623fa42f917a5c90b8677ef8d7c9b5ffc0324bbea8e7067f26e",
+      "bytes": 72
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://nginx.org/LICENSE",
+      "fetched_at": "2026-10-09T07:37:42.110270+00:00",
+      "status": 200,
+      "final_url": "https://nginx.org/LICENSE",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Content-Length": "1397",
+        "Last-Modified": "Thu, 24 Sep 2026 08:30:41 GMT",
+        "ETag": "\"6ab4dfb1-575\""
+      },
+      "sha256": "84d5d5e86a65567c8310a6798ed9110c665f715b586905cdbe28f857511ae261",
+      "bytes": 1397
+    },
+    {
+      "url": "https://nginx.org/en/security_advisories.html",
+      "fetched_at": "2026-10-09T07:37:44.129226+00:00",
+      "status": 200,
+      "final_url": "https://nginx.org/en/security_advisories.html",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "23815",
+        "Last-Modified": "Thu, 24 Sep 2026 08:30:46 GMT",
+        "ETag": "\"6ab4dfb6-5d07\""
+      },
+      "sha256": "1e4c842d6de1ec2cd7aff7f0fcb4936cbf760523129eeef5dceb0c274d3d92f9",
+      "bytes": 23815
+    }
+  ],
+  "sample_allowed_by_robots": null
+}

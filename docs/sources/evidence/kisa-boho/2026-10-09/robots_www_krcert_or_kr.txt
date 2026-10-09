@@ -1,0 +1,16 @@
+User-agent: googlebot
+Disallow: /admin/
+Disallow: /curoms/
+Allow: /*/subPage.do
+Allow: /*/bbs/list.do
+Allow: /*/report/list.do
+Allow: /*/consult/consultForm.do
+
+
+User-agent: Yeti
+Disallow: /admin/
+Disallow: /curoms/
+Allow: /*/subPage.do
+Allow: /*/bbs/list.do
+Allow: /*/report/list.do
+Allow: /*/consult/consultForm.do

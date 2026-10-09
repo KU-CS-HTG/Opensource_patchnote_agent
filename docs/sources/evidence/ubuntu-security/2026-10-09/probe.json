@@ -1,0 +1,60 @@
+{
+  "id": "ubuntu-security",
+  "robots": [
+    {
+      "url": "https://ubuntu.com/robots.txt",
+      "fetched_at": "2026-10-09T07:37:46.402811+00:00",
+      "status": 200,
+      "final_url": "https://ubuntu.com/robots.txt",
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "content-length": "5511",
+        "last-modified": "Mon, 21 Sep 2026 13:28:40 GMT",
+        "etag": "\"1789997320.0-5511-1935477018\""
+      },
+      "sha256": "16e26f4cb730b111c334f112f075115ef4a50cf8df110581f3d4ee032a47cca9",
+      "bytes": 5511
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://ubuntu.com/legal/terms-and-policies/intellectual-property-policy",
+      "fetched_at": "2026-10-09T07:37:48.691041+00:00",
+      "status": 200,
+      "final_url": "https://canonical.com/legal/intellectual-property-policy",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "210072"
+      },
+      "sha256": "9ec47a55bb0c695f56d664b1c9112e4ecfc2699facb29e8d2b25c5cf684db500",
+      "bytes": 200000
+    },
+    {
+      "url": "https://documentation.ubuntu.com/security/docs/",
+      "fetched_at": "2026-10-09T07:37:53.013402+00:00",
+      "status": 200,
+      "final_url": "https://documentation.ubuntu.com/security/",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "ETag": "W/\"79876883fde6a613d6730936d82a076a\"",
+        "Last-Modified": "Thu, 01 Oct 2026 07:20:12 GMT"
+      },
+      "sha256": "a7c38cdd39fe933625e772c6107dddeb0aad07e5f736f94738b3e9cacd290a6b",
+      "bytes": 38484
+    },
+    {
+      "url": "https://ubuntu.com/security/cves.json?limit=1",
+      "fetched_at": "2026-10-09T07:37:55.346362+00:00",
+      "status": 200,
+      "final_url": "https://ubuntu.com/security/cves.json?limit=1",
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "138149"
+      },
+      "sha256": "31df097807eda74b658de2b9da9d1a3e938eef58e5f8c225e6a0bccc286dca44",
+      "bytes": 138149
+    }
+  ],
+  "sample_allowed_by_robots": true,
+  "crawl_delay": 1
+}

@@ -1,0 +1,61 @@
+{
+  "id": "kisa-boho",
+  "robots": [
+    {
+      "url": "https://www.boho.or.kr/robots.txt",
+      "fetched_at": "2026-10-09T07:37:10.494541+00:00",
+      "status": 200,
+      "final_url": "https://www.boho.or.kr/robots.txt",
+      "headers": {
+        "ETag": "W/\"316-1677147811000\"",
+        "Last-Modified": "Thu, 23 Feb 2023 10:23:31 GMT",
+        "Content-Type": "text/plain"
+      },
+      "sha256": "607d0e3465292758ec753cb41429c024165d71052ad0217766d9b88ec2086cc6",
+      "bytes": 316
+    },
+    {
+      "url": "https://www.kisa.or.kr/robots.txt",
+      "fetched_at": "2026-10-09T07:37:11.554897+00:00",
+      "status": null,
+      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1018)>",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "url": "https://www.krcert.or.kr/robots.txt",
+      "fetched_at": "2026-10-09T07:37:12.603663+00:00",
+      "status": 200,
+      "final_url": "https://www.krcert.or.kr/robots.txt",
+      "headers": {
+        "ETag": "W/\"316-1677147811000\"",
+        "Last-Modified": "Thu, 23 Feb 2023 10:23:31 GMT",
+        "Content-Type": "text/plain"
+      },
+      "sha256": "607d0e3465292758ec753cb41429c024165d71052ad0217766d9b88ec2086cc6",
+      "bytes": 316
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.boho.or.kr/",
+      "fetched_at": "2026-10-09T07:37:13.680346+00:00",
+      "status": 200,
+      "final_url": "https://www.boho.or.kr/",
+      "headers": {
+        "Content-Type": "text/html;charset=utf-8"
+      },
+      "sha256": "91a471ecf2362c36859ef509d85ebbef620ef2151f29e9670b1c5171259d56aa",
+      "bytes": 78939
+    },
+    {
+      "url": "https://www.kisa.or.kr/",
+      "fetched_at": "2026-10-09T07:37:14.840988+00:00",
+      "status": null,
+      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1018)>",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "sample_allowed_by_robots": null
+}

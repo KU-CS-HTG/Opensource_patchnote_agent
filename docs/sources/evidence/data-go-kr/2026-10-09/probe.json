@@ -1,0 +1,57 @@
+{
+  "id": "data-go-kr",
+  "robots": [
+    {
+      "url": "https://www.data.go.kr/robots.txt",
+      "fetched_at": "2026-10-09T07:37:15.891783+00:00",
+      "status": 200,
+      "final_url": "https://www.data.go.kr/robots.txt",
+      "headers": {
+        "Last-Modified": "Thu, 01 Oct 2026 02:08:50 GMT",
+        "Content-Length": "177",
+        "Content-Type": "text/plain; charset=UTF-8"
+      },
+      "sha256": "03f90cb10e1469c23d5a4e8fe367aa3d46d6b9b842c32c2231bbc064f3fff4e8",
+      "bytes": 177
+    },
+    {
+      "url": "https://www.kogl.or.kr/robots.txt",
+      "fetched_at": "2026-10-09T07:37:16.970257+00:00",
+      "status": 200,
+      "final_url": "https://www.kogl.or.kr/robots.txt",
+      "headers": {
+        "ETag": "\"/EV9CFlYvCG\"",
+        "Last-Modified": "Mon, 22 Dec 2025 07:19:49 GMT",
+        "Content-Type": "text/plain; charset=utf-8",
+        "Content-Length": "127"
+      },
+      "sha256": "c19554168c5b32549ec6ddfbef0cde8c0169218465d4faf4add8b6f9f72278f6",
+      "bytes": 127
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.data.go.kr/",
+      "fetched_at": "2026-10-09T07:37:18.055356+00:00",
+      "status": 200,
+      "final_url": "https://www.data.go.kr/",
+      "headers": {
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "sha256": "1b233d61e5233d85be019150227ca657e2ebd63d377a7b06a3f89a2bab1da89a",
+      "bytes": 169047
+    },
+    {
+      "url": "https://www.kogl.or.kr/info/license.do",
+      "fetched_at": "2026-10-09T07:37:19.312769+00:00",
+      "status": 200,
+      "final_url": "https://www.kogl.or.kr/info/license.do",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "sha256": "e39a8ad2be7ce3fb6ce23402fbf2bc866ff4ed41b612a22f164ebf1d8b9eb66f",
+      "bytes": 142380
+    }
+  ],
+  "sample_allowed_by_robots": null
+}

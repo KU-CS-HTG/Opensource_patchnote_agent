@@ -1,0 +1,53 @@
+{
+  "id": "debian-security",
+  "robots": [
+    {
+      "url": "https://www.debian.org/robots.txt",
+      "fetched_at": "2026-10-09T07:37:58.503159+00:00",
+      "status": 404,
+      "final_url": "https://www.debian.org/robots.txt",
+      "headers": {},
+      "sha256": "9b30daa2b6f60c291c86be480948ae88625a0531e8f38a30ca0328424110e09a",
+      "bytes": 7468
+    },
+    {
+      "url": "https://security-tracker.debian.org/robots.txt",
+      "fetched_at": "2026-10-09T07:38:00.391203+00:00",
+      "status": 404,
+      "final_url": "https://security-tracker.debian.org/robots.txt",
+      "headers": {},
+      "sha256": "503bdbc043e63a4e06173ef99fea784adcf9f7047eff8b6ef7f0de1c99074a2d",
+      "bytes": 314
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.debian.org/legal/licenses/",
+      "fetched_at": "2026-10-09T07:38:02.276403+00:00",
+      "status": 200,
+      "final_url": "https://www.debian.org/legal/licenses/",
+      "headers": {
+        "Last-Modified": "Wed, 23 Sep 2026 15:40:20 GMT",
+        "ETag": "\"3003-65c284d0275ce\"",
+        "Content-Length": "12291",
+        "Content-Type": "text/html"
+      },
+      "sha256": "21b12cdd53a32edbe976c6df9b06e141239be4053b925f3620a2986da6da1cf0",
+      "bytes": 12291
+    },
+    {
+      "url": "https://security-tracker.debian.org/tracker/data/json",
+      "fetched_at": "2026-10-09T07:38:03.982327+00:00",
+      "status": 200,
+      "final_url": "https://security-tracker.debian.org/tracker/data/json",
+      "headers": {
+        "Content-Length": "82325933",
+        "Content-Type": "application/json",
+        "Last-Modified": "Fri, 09 Oct 2026 06:31:39 GMT"
+      },
+      "sha256": "fcf1e5f48042c2ff7086cd2b18b790b44dd9944a6f84701837d0ec1473b5f282",
+      "bytes": 200000
+    }
+  ],
+  "sample_allowed_by_robots": null
+}

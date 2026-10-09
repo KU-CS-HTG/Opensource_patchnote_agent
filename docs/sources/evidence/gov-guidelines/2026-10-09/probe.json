@@ -1,0 +1,114 @@
+{
+  "id": "gov-guidelines",
+  "robots": [
+    {
+      "url": "https://www.msit.go.kr/robots.txt",
+      "fetched_at": "2026-10-09T07:37:24.169304+00:00",
+      "status": 200,
+      "final_url": "https://www.msit.go.kr/robots.txt",
+      "headers": {
+        "Last-Modified": "Fri, 04 Sep 2026 02:17:57 GMT",
+        "Content-Length": "916",
+        "Content-Type": "text/plain; charset=UTF-8"
+      },
+      "sha256": "b8cbf8698fb54582a8a5df8b6384802fb173bf23b2aa259439a90c2aaeea48e0",
+      "bytes": 916
+    },
+    {
+      "url": "https://www.mois.go.kr/robots.txt",
+      "fetched_at": "2026-10-09T07:37:25.388099+00:00",
+      "status": 200,
+      "final_url": "https://www.mois.go.kr/robots.txt",
+      "headers": {
+        "Content-Type": "text/plain; charset=UTF-8",
+        "Content-Length": "23",
+        "Last-Modified": "Mon, 21 Jun 2021 04:08:59 GMT",
+        "ETag": "\"17-5c53ed531acc0\""
+      },
+      "sha256": "eaeaa8d3511d1622227d89707d995b8b1f0902f5b86fdbe58882d1cef260d4d7",
+      "bytes": 23
+    },
+    {
+      "url": "https://www.nis.go.kr/robots.txt",
+      "fetched_at": "2026-10-09T07:37:26.511016+00:00",
+      "status": 200,
+      "final_url": "https://www.nis.go.kr/robots.txt",
+      "headers": {
+        "ETag": "\"0-181-6653d4f9\"",
+        "Last-Modified": "Mon, 27 May 2024 00:34:01 GMT",
+        "Content-Length": "385",
+        "Content-Type": "text/plain"
+      },
+      "sha256": "ff6fcbf60b1b1dcffee768d924db646386bdb4504ca78485b29fad57243fb9f1",
+      "bytes": 385
+    },
+    {
+      "url": "https://www.ncsc.go.kr/robots.txt",
+      "fetched_at": "2026-10-09T07:37:27.611244+00:00",
+      "status": 200,
+      "final_url": "https://www.ncsc.go.kr/error.html",
+      "headers": {
+        "ETag": "\"0-f3f-6a01669a\"",
+        "Last-Modified": "Mon, 11 May 2026 05:18:18 GMT",
+        "Content-Length": "3903",
+        "Content-Type": "text/html"
+      },
+      "sha256": "bf325a7c25773eb9a259af3bedf9e3b728006c0965f8f7bc8abb82834a2dd822",
+      "bytes": 3903
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.msit.go.kr/",
+      "fetched_at": "2026-10-09T07:37:28.765825+00:00",
+      "status": 200,
+      "final_url": "https://www.msit.go.kr/",
+      "headers": {
+        "Content-Length": "51",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "sha256": "65450212bbd81d7a6b67f49d38bfb5875505a1d427d39eedec16f9b9388cf66f",
+      "bytes": 51
+    },
+    {
+      "url": "https://www.mois.go.kr/",
+      "fetched_at": "2026-10-09T07:37:29.881113+00:00",
+      "status": 200,
+      "final_url": "https://www.mois.go.kr/",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Content-Length": "1122",
+        "Last-Modified": "Wed, 14 May 2025 07:36:32 GMT",
+        "ETag": "\"462-635139ba20000\""
+      },
+      "sha256": "9aaebac7b6373e30245d2e071d60757b7f2e286405d890de18f62788af56d5c1",
+      "bytes": 1122
+    },
+    {
+      "url": "https://www.nis.go.kr/",
+      "fetched_at": "2026-10-09T07:37:30.944415+00:00",
+      "status": 200,
+      "final_url": "https://www.nis.go.kr/",
+      "headers": {
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "sha256": "45f7b3fa6ddf0a699995c980aa3554e2abff15fe80ef8afa69662f85cdf00991",
+      "bytes": 2202
+    },
+    {
+      "url": "https://www.ncsc.go.kr/",
+      "fetched_at": "2026-10-09T07:37:32.013504+00:00",
+      "status": 200,
+      "final_url": "https://www.ncsc.go.kr/",
+      "headers": {
+        "ETag": "W/\"25637-1778747720000\"",
+        "Last-Modified": "Thu, 14 May 2026 08:35:20 GMT",
+        "Content-Length": "25637",
+        "Content-Type": "text/html"
+      },
+      "sha256": "73618392304242f487d2b87f1581d82314a0e78bf927686d5a65e892639297cd",
+      "bytes": 25637
+    }
+  ],
+  "sample_allowed_by_robots": null
+}
