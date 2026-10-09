@@ -38,10 +38,18 @@
 | gov-guidelines | msit·mois·nis·ncsc 메인 200 | msit·mois: 허용(msit는 검색 경로만 금지). **nis.go.kr: `User-agent: *` → `Disallow: /`(검색엔진 일부만 허용) → 수집 불가**. ncsc: robots 대신 오류 HTML → 규칙 없음 | 미확인(문서 단위) | - | **nis 제외**, 나머지 대기 |
 | postgresql | 라이선스·보안 페이지 200 | `/docs/devel/` 등 일부 금지, 보안 페이지·`/docs/16/` 허용. Crawl-delay 없음 | **확인함**: PostgreSQL License(소프트웨어·문서 사용·복사·수정·배포 허용, 저작권 고지 유지). 웹사이트 공지 페이지 별도 라이선스는 미확인 | - | 조건부(승인 유력) |
 | nginx | LICENSE·보안 권고 200 | `Disallow: /libxslt/`만 → 보안 권고 허용 | 미확인 | - | 대기(유력) |
-| ubuntu-security | JSON API 200, IP 정책 페이지 200 | `/security` 허용, Crawl-delay 1 | IP 정책은 **배포판·상표 정책**이며 CVE JSON 데이터 라이선스에 대한 조항은 아님. 데이터 라이선스 **미확인** | 문서 미확인 | 보류 |
+| ubuntu-security | JSON API 200, IP 정책 페이지 200 | `/security` 허용, Crawl-delay 1 | IP 정책은 **배포판·상표 정책**이며 CVE JSON 데이터 라이선스에 대한 조항은 아님. 데이터 라이선스 **미확인** | 문서 미확인 | **제외(A안, 2026-10-09 결정)** → 데이터 라이선스 확인 후 B안 검토 |
 | debian-security | 라이선스 페이지·JSON 덤프 200 | 두 도메인 robots 404 → 규칙 없음 | 미독 | - | 대기(선택) |
 | redhat-security | 약관·API 200 | `User-agent: *`에서 API 경로 허용, **Crawl-delay 10** | 미독 | 문서 미확인 | 대기(선택) |
 | cis | 약관 페이지 200 | `Disallow:` 비어 있음(전체 허용), Crawl-delay 10 | 미독(가입·재배포 제한 추정) | - | 제외 가능성 높음 |
+
+## 결정 기록
+| 날짜 | 결정 | 근거 |
+|---|---|---|
+| 2026-10-09 | nis.go.kr 수집 제외 | robots.txt가 일반 크롤러 전체 금지 |
+| 2026-10-09 | **Ubuntu(CC-BY-SA) 데이터는 A안으로 시작**: 초기 수집에서 제외하고, 공식 라이선스 확인 후 B안(수집·격리, 공개 산출물에서 분리)으로 승격 | [ADR-0003](../adr/0003-exclude-share-alike-data-initially.md) |
+
+미결정: 비상업 한정 여부, 공공누리 제3·4유형 처리, OSV 조건부 승인 범위, PostgreSQL 조건부 승인.
 
 ## 상세 메모: 약관·라이선스 원문 인용 (2026-10-09 증거)
 
